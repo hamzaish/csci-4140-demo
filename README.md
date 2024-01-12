@@ -5,7 +5,7 @@ Welcome to the *Project Name*. This document provides an overview of the project
 ## Website Link (Just for your reference! You should not copy any of these!)
 
 **Important:** Please visit the project's website hosted on Render at the following URL:  
-[Project Website on Render](#)
+[Project Website on Render](#)  For example, you can check the demo website deployed using this repo here: https://csci4140.onrender.com/
 
 ## Directory Structure and Functionality (Just for your reference! You should not copy any of these!)
 
