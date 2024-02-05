@@ -1,6 +1,6 @@
 # Project Name (Just for your reference! You should not copy any of these!)
 
-Welcome to the *Project Name*. This document provides an overview of the project's structure, key components, and development process. 
+Welcome to the *Assignment 1*. This document provides an overview of the project's structure, key components, and development process. 
 
 ## Website Link (Just for your reference! You should not copy any of these!)
 
