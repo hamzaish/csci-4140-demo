@@ -4,7 +4,7 @@
         $username = $_POST['username'];
         $pass = $_POST['password'];
         setcookie('username', $username, time()+3600);
-        $sql = "SELECT FROM myusers WHERE name=$username AND passwords=$pass";
+        $sql = "SELECT FROM myusers WHERE name='$username' AND passwords='$pass'";
         $result = $conn->query($sql);
         $rows = pg_num_rows($result);
         if($rows == 1){
