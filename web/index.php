@@ -1,9 +1,9 @@
+<?php
+          $connect = include('db_connect.php');
+        ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php
-          $connect = include('db_connect.php');
-        ?>
     <title>Photo Editing Server</title>
   </head>
   <body>
