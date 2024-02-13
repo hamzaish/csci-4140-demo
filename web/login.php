@@ -1,5 +1,5 @@
 <?php
-    include('db_connect');
+    include('db_connect.php');
     if(isset($_POST['button'])){
         $username = $_POST['username'];
         $pass = $_POST['password'];
