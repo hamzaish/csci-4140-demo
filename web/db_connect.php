@@ -18,7 +18,7 @@ try {
 try {
     $sql = "CREATE TABLE IF NOT EXISTS MyUsers(id INT PRIMARY KEY,
     name VARCHAR NOT NULL, passwords VARCHAR, reg_date TIMESTAMP);";
-    $conn->exec($sql)
+    $conn->exec($sql);
 } catch(PDOException $e) {
     error_log("Couldn't create table")
 }
