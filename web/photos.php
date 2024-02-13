@@ -21,8 +21,13 @@
     </div>
     <div>
         <link href="./index.css" rel="stylesheet" />
-        <form action="upload-photo.php" method="post"> 
-            <input type="submit" value="Upload a Photo"> 
+        <form action="edit-photo.php" method="post" enctype="multipart/form-data">
+            <input type="file" id="image" name="filename">
+            <div>
+                <input type="checkbox" id="public" name="public" checked />
+                <label for="public">Public?</label>
+            </div>
+            <input type="submit" name="submit" value="Upload Photo">
         </form>
     </div>
   </body>
