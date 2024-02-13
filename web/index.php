@@ -22,12 +22,7 @@
           class="home-textinput1 input"
         />
         <button type="submit" class="home-button button">Log In</button>
-        <p class="home-text">Log In to View Photos</p>
         <?php
-          echo '<h1>Hello world!</h1>';
-          echo '<p>This page uses PHP version '
-              . phpversion()
-              . '.</p>';
           include('db_connect.php');
         ?>
       </div>
