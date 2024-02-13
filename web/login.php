@@ -6,7 +6,7 @@
         setcookie('username', $username, time()+3600);
         $sql = "SELECT FROM myusers WHERE name='$username' AND passwords='$pass'";
         $result = $conn->query($sql);
-        $rows = num_rows($result);
+        $rows = $conn->num_rows($result);
         if($rows == 1){
             header("Location: https://www.postgresql.org/docs/current/tutorial-accessdb.html", true, 301);
         }
