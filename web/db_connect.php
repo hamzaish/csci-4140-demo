@@ -19,6 +19,10 @@ try {
     $sql = "CREATE TABLE IF NOT EXISTS MyUsers(id INT PRIMARY KEY,
     name VARCHAR NOT NULL, passwords VARCHAR, reg_date TIMESTAMP);";
     $conn->exec($sql);
+    $insert = "INSERT INTO MyUsers (id, name, passwords) VALUES (1, 'admin', 'minda123');"; 
+    $conn->exec($insert);
+    $insert = "INSERT INTO MyUsers (id, name, passwords) VALUES (2, 'Student', 'csci4140sp24');";
+    $conn->exec($insert);
 } catch(PDOException $e) {
     error_log("Couldn't create table");
 }
