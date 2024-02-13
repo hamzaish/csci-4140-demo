@@ -12,7 +12,7 @@
             header("Location: photos.php");
         }
         else{
-            header("Location: log-in.php?failed=true");
+            header("Location: index.php");
         }
     }
     if(isset($_COOKIE['username'])){

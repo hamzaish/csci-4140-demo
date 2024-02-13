@@ -1,7 +1,7 @@
 <?php
     include('db_connect.php');
     if(isset($_COOKIE['username'])){
-        echo '<p>You are logged in!<p>';
+        setcookie('name', '', time()-3600)
+        header("Location: index.php");
     }
-    header("Location: index.php")
 ?>
