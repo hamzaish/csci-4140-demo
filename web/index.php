@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <?php
+          $connect = include('db_connect.php');
+        ?>
     <title>Photo Editing Server</title>
   </head>
   <body>
     <link rel="stylesheet" href="./style.css" />
     <div>
       <link href="./index.css" rel="stylesheet" />
-      <p class="home-text">Log In to View Photos</p>
       <div class="home-container">
+      <p class="home-text">Log In to View Photos</p>
         <input
           type="text"
           placeholder="Username"
@@ -22,9 +25,6 @@
           class="home-textinput1 input"
         />
         <button type="submit" class="home-button button">Log In</button>
-        <?php
-          $connect = include('db_connect.php');
-        ?>
       </div>
     </div>
   </body>
