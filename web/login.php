@@ -9,10 +9,10 @@
         
         if($rows == 1){
             setcookie('username', $username, time()+3600);
-            header("Location: photos.html");
+            header("Location: photos.php");
         }
         else{
-            header("Location: log-in.html?failed=true");
+            header("Location: log-in.php?failed=true");
         }
     }
     if(isset($_COOKIE['username'])){
