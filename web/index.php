@@ -23,7 +23,7 @@
         />
         <button type="submit" class="home-button button">Log In</button>
         <?php
-          include('db_connect.php');
+          $connect = include('db_connect.php');
         ?>
       </div>
     </div>
