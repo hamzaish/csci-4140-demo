@@ -1,6 +1,6 @@
 <?php
     include('db_connect.php');
-    if(isset($_POST['button'])){
+    if(isset($_POST['username']) && isset($_POST['password'])){
         $username = $_POST['username'];
         $pass = $_POST['password'];
         setcookie('username', $username, time()+3600);

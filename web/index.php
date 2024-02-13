@@ -16,13 +16,13 @@
         <input
           type="text"
           placeholder="Username"
-          name="password"
+          name="username"
           class="home-textinput input"
         />
         <input
           type="text"
           placeholder="Password"
-          name="username"
+          name="password"
           class="home-textinput1 input"
         />
         <button type="submit" class="home-button button">Log In</button>
