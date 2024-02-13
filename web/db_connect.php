@@ -14,4 +14,13 @@ try {
 } catch(PDOException $e) {
     error_log("<p>Unable to connect to the database");
 }
+
+try {
+    $sql = "CREATE TABLE IF NOT EXISTS MyUsers(id INT PRIMARY KEY,
+    name VARCHAR NOT NULL, passwords VARCHAR, reg_date TIMESTAMP);";
+    $conn->exec($sql)
+} catch {
+    error_log("Couldn't create table")
+}
+
 ?>
