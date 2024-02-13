@@ -1,0 +1,43 @@
+.home-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home-textinput {
+    top: 40%;
+    left: 0px;
+    right: 0px;
+    width: 205px;
+    height: 37px;
+    margin: auto;
+    position: absolute;
+  }
+  .home-textinput1 {
+    top: 47%;
+    left: 0px;
+    right: 0px;
+    width: 205px;
+    height: 37px;
+    margin: auto;
+    position: absolute;
+  }
+  .home-button {
+    top: 55%;
+    left: 0px;
+    right: 0px;
+    width: 209px;
+    height: 37px;
+    margin: auto;
+    position: absolute;
+  }
+  .home-text {
+    top: 35%;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+  }
+  
