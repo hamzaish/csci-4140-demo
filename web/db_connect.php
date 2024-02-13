@@ -1,8 +1,8 @@
 <?php
-$host = 'dpg-cm7a80mdxxxxxxxxxx';
-$dbname = 'demo_xxxxxxxx';
-$username = 'xxxxxxx';
-$password = 'ecMTqrDov1NDxxxxxxxxxxx';
+$host = 'dpg-cn5givuct0pc738fpak0-a';
+$dbname = 'csci4140_ass1_db';
+$username = 'csci4140_ass1_db_user';
+$password = 'bQkIPgppbsgzujNoURv5lqjrHLDv867q';
 
 try {
     $conn = new PDO("pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password");
