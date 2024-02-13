@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style.css" />
     <div>
       <link href="./index.css" rel="stylesheet" />
-
+      <p class="home-text">Log In to View Photos</p>
       <div class="home-container">
         <input
           type="text"
