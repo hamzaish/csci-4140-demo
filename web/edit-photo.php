@@ -10,7 +10,7 @@
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
         $folder = "image/$file_name";
-        echo "<p>$file_name<p>"
+        echo "<p>$file_name<p>";
 
     }
 ?>
