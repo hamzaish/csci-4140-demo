@@ -7,21 +7,11 @@
 <body>
 <?php
     if (isset($_POST["submit"])) {
+        $file_name = $_FILES["image"]["name"];
+        $temp_name = $_FILES["image"]["tmp_name"];
+        $folder = "image/$file_name";
+        echo "<p>$file_name<p>"
 
-        // Check image using getimagesize function and get size
-        // if a valid number is got then uploaded file is an image
-        if (isset($_FILES["image"])) {
-            $targetDir = "uploads/";
-            $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-            $uploadOk = 1;
-            $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-                echo "<p>The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.<p>";
-            } else {
-                echo "<p>Sorry, there was an error uploading your file.<p>";
-            }
-            // Validation here
-        }
     }
 ?>
 

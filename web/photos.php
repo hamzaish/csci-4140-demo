@@ -24,7 +24,7 @@
         <form action="edit-photo.php" method="post" enctype="multipart/form-data">
             <input type="file" id="image" name="filename">
             <div>
-                <input type="checkbox" id="public" name="public" checked />
+                <input type="checkbox" id="public" name="public" checked/>
                 <label for="public">Public?</label>
             </div>
             <input type="submit" name="submit" value="Upload Photo">
