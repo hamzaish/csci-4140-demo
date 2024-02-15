@@ -10,9 +10,9 @@
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
         $folder = "images/";
-        $target = $target.$file_name;
+        $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
-        echo "<img src = $temp_name>";
+        echo "<img src = $target>";
         echo "<p>$file_name<p>";
     }
 ?>
