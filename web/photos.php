@@ -21,14 +21,21 @@
     </div>
     <div>
         <link href="./index.css" rel="stylesheet" />
-        <form action="edit-photo.php" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <input type="file" name="image" id="image">
-            <div>
-                <input type="checkbox" id="public" name="public" checked/>
-                <label for="public">Public?</label>
-            </div>
+            <input type="checkbox" id="public" name="public" checked/>
+            <label for="public">Public?</label>
             <input type="submit" name="submit" value="Upload Photo">
         </form>
     </div>
+    <?php
+    if (isset($_POST["submit"])) {
+        $file_name = $_FILES["image"]["name"];
+        $temp_name = $_FILES["image"]["tmp_name"];
+        $folder = "image/$file_name";
+        echo "<p>$file_name<p>";
+
+    }
+    ?>
   </body>
 </html>
