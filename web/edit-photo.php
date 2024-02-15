@@ -6,10 +6,11 @@
 <html>
 <body>
 <?php
+    define ('SITE_ROOT', realpath(dirname(__FILE__)));
     if (isset($_POST["submit"])) {
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
-        $folder = "images/";
+        $folder = SITE_ROOT."/images/";
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
         echo "<img src = $target>";
