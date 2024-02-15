@@ -9,7 +9,9 @@
     if (isset($_POST["submit"])) {
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
-        $folder = "images/$file_name";
+        $folder = "images/";
+        $target = $target.$file_name;
+        move_uploaded_file($temp_name, $target);
         echo "<img src = $temp_name>";
         echo "<p>$file_name<p>";
     }
