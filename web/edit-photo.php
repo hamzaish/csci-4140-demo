@@ -14,7 +14,7 @@
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
         echo "<img src = $target>";
-        echo "<p>$file_name<p>";
+        echo "<p>$target<p>";
     }
 ?>
 
