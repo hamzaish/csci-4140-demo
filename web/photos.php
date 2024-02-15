@@ -21,7 +21,7 @@
     </div>
     <div>
         <link href="./index.css" rel="stylesheet" />
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="edit-photo.php" method="post" enctype="multipart/form-data">
             <input type="file" name="image" id="image">
             <input type="checkbox" id="public" name="public" checked/>
             <label for="public">Public?</label>
