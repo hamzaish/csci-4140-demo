@@ -13,7 +13,7 @@
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
         ob_start();
-        $image = new Imagick('$file_name');
+        $image = new Imagick($file_name);
         $img= $image->getImageBlob();
         $contents = ob_get_contents();
         ob_end_clean();
