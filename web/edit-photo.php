@@ -89,6 +89,11 @@
             $image->writeImage($target);
         }
         $data = file_get_contents($target);
+        if ($public == "on"){
+            $public = 'true';
+        } else {
+            $public = 'false';
+        }
         echo "<p>$public</p>";
         $sql = "INSERT INTO images (name, public, img) VALUES ('$name', '$public', '$data')";
         $result = $conn->query($sql);
