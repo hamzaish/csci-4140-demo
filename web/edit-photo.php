@@ -1,12 +1,12 @@
 <?php
     $connect = include('db_connect.php');
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <body>
 <?php
     define ('SITE_ROOT', realpath(dirname(__FILE__)));
-    session_start();
     if (isset($_POST["submit"])) {
         $_SESSION['filter'] = "none";
         $_SESSION["public"] = $_POST["public"];
