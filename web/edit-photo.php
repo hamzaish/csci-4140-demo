@@ -65,6 +65,7 @@
         if ($filter == "none"){
             $folder = SITE_ROOT."/";
             $target = $folder."image.jpg";
+            echo '<meta http-equiv="Location" content="photos.php">'
         }
     }
 ?>
