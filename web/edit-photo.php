@@ -8,7 +8,7 @@
     define ('SITE_ROOT', realpath(dirname(__FILE__)));
     $filter = "none";
     if (isset($_POST["submit"])) {
-        define("public", $_POST["public"]);
+        $public = $_POST["public"];
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
         $folder = SITE_ROOT."/";
@@ -59,12 +59,16 @@
         $folder = SITE_ROOT."/";
         $target = $folder."image.jpg";
         unlink($target);
-        exit(header("Location: photos.php"));
+        echo '<meta http-equiv="Location" content="photos.php">';
     }
     if (isset($_POST["upload"])) {
         if ($filter == "none"){
             $folder = SITE_ROOT."/";
             $target = $folder."image.jpg";
+            $name = $_COOKIE['username'];
+            $data = file_get_contents($target);
+            $sql = "INSERT INTO images (name, public, img) VALUES ($name, $public, $data)";
+            $result = $conn->query($sql);
             echo '<meta http-equiv="Location" content="photos.php">';
         }
     }
