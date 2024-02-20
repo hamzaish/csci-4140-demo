@@ -11,7 +11,7 @@
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
         $folder = SITE_ROOT."/";
-        $target = $folder.$file_name;
+        $target = $folder."image.jpg";
         move_uploaded_file($temp_name, $target);
         define("target", $target);
         $image = new Imagick($target);
@@ -25,7 +25,18 @@
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
     if (isset($_POST["filter1"])) {
-        echo "<p>Filter 1</p>";
+        $folder = SITE_ROOT."/";
+        $target = $folder."image.jpg";
+        $image = new Imagick($target);
+        $image->resizeImage(300, 300, Imagick::FILTER_LANCZOS,1);
+        $image->setImageFormat("jpg");
+        $image->borderImage("black", 300, 300);
+        ob_start();
+        print$image->getImageBlob();
+        $contents = ob_get_contents();
+        ob_end_clean();
+        define("contents", $contents);
+        echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
 ?>
 <form action="" method="post">
