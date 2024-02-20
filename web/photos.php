@@ -24,7 +24,8 @@
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
             $array = array();
             foreach($data as $row){
-                echo $row["img"];
+                $img = base64_decode($row["img"]);
+                echo '<img src="data:image/jpeg;base64,' . $img . '" />';
                 array_push($array, $row['img']);
             }
         ?>
