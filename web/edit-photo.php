@@ -89,6 +89,7 @@
             $image->writeImage($target);
         }
         $data = file_get_contents($target);
+        echo "<p>$public</p>";
         $sql = "INSERT INTO images (name, public, img) VALUES ('$name', '$public', '$data')";
         $result = $conn->query($sql);
         echo '<meta http-equiv="refresh" content="0; url=photos.php">';
