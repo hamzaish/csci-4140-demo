@@ -95,8 +95,8 @@
             $public = 'false';
         }
         echo "<p>$public</p>";
-        $sql = "INSERT INTO images (name, public, img) VALUES ('$name', '$public', '$data')";
-        $result = $conn->query($sql);
+        $sql = "INSERT INTO images (name, public, img) VALUES (?, ?, ?)";
+        $conn->prepare($sql)->execute([$name, $public, $data]);
         echo '<meta http-equiv="refresh" content="0; url=photos.php">';
     }
 ?>
