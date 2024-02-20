@@ -59,7 +59,8 @@
         $folder = SITE_ROOT."/";
         $target = $folder."image.jpg";
         unlink($target);
-        echo '<meta http-equiv="Location" content="photos.php">';
+        $domain = "photos.php";
+        echo '<meta http-equiv="refresh" content="7; url=<?php $domain ?>"';
     }
     if (isset($_POST["upload"])) {
         if ($filter == "none"){
@@ -69,7 +70,7 @@
             $data = file_get_contents($target);
             $sql = "INSERT INTO images (name, public, img) VALUES ($name, $public, $data)";
             $result = $conn->query($sql);
-            echo '<meta http-equiv="Location" content="photos.php">';
+            echo '<meta http-equiv="refresh" content="photos.php">';
         }
     }
 ?>
