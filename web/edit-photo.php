@@ -89,7 +89,7 @@
             $image->writeImage($target);
         }
         $data = file_get_contents($target);
-        $data = mb_convert_encoding($data,"UTF-8", mb_detect_encoding($data, 'UTF-8, ISO-8859-1', true));
+        $data = base64_encode($data);
         if ($public == "on"){
             $public = 'true';
         } else {
