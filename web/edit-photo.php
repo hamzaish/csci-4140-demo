@@ -13,6 +13,7 @@
         $folder = SITE_ROOT."/";
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
+        define("target", $target);
         $image = new Imagick($target);
         $image->resizeImage(300, 300, Imagick::FILTER_LANCZOS,1);
         $image->setImageFormat("jpg");
@@ -20,11 +21,9 @@
         print$image->getImageBlob();
         $contents = ob_get_contents();
         ob_end_clean();
-        echo "<img src='data:image/jpg;base64,".base64_encode($contents)."' />";
+        define("contents", $contents);
     }
-    if (isset($_POST["filter1"])) {
-        echo "<img src='data:image/jpg;base64,".base64_encode($contents)."' />";
-    }
+    echo "<img src='data:image/jpg;base64,".base64_encode($contents)."' />";
 ?>
 <form action="" method="post">
     <input type="submit" name="filter1" value="Filter 1">
