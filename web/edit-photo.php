@@ -1,7 +1,6 @@
 <?php
     $connect = include('db_connect.php');
 ?>
-
 <!DOCTYPE html>
 <html>
 <body>
