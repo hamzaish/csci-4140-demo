@@ -15,6 +15,10 @@
         move_uploaded_file($temp_name, $target);
         echo "<img src='$file_name'";
         echo "<p>$target<p>";
+        header("Content-type: image/jpeg");
+        $image = new Imagick($file_name);
+        $image->thumbnailImage(100,0);
+        echo $image;
     }
 ?>
 
