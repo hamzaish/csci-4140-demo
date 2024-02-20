@@ -66,7 +66,7 @@
     if (isset($_POST["upload"])) {
         $filter = $_SESSION['filter'];
         $public = $_SESSION['public'];
-        $name = $_SESSION['username'];
+        $name = $_COOKIE['username'];
         if ($filter == "none"){
             $folder = SITE_ROOT."/";
             $target = $folder."image.jpg";
