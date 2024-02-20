@@ -60,16 +60,17 @@
         $target = $folder."image.jpg";
         unlink($target);
         $domain = "photos.php";
-        echo '<meta http-equiv="refresh" content="1; url=photos.php">';
+        echo '<meta http-equiv="refresh" content="0; url=photos.php">';
     }
     if (isset($_POST["upload"])) {
+        echo "<p>$filter<p>";
         if ($filter == "none"){
             $folder = SITE_ROOT."/";
             $target = $folder."image.jpg";
             $name = $_COOKIE['username'];
             $data = file_get_contents($target);
             $sql = "INSERT INTO images (name, public, img) VALUES ($name, $public, $data)";
-            $result = $conn->query($sql);
+            // $result = $conn->query($sql);
             echo '<meta http-equiv="refresh" content="photos.php">';
         }
     }
