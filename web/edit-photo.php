@@ -1,6 +1,5 @@
 <?php
     $connect = include('db_connect.php');
-    header("Content-type: image/jpg");
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,9 +12,12 @@
         $folder = SITE_ROOT."/";
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
-        $image = new Imagick($file_name);
+        ob_start();
+        $image = new Imagick('$file_name');
         $img= $image->getImageBlob();
-        echo $img;
+        $contents = ob_get_contents();
+        ob_end_clean();
+        echo "<img src='data:image/jpg;base64,".base64_encode($contents)."' />";
     }
 ?>
 
