@@ -7,8 +7,8 @@
 <?php
     define ('SITE_ROOT', realpath(dirname(__FILE__)));
     if (isset($_POST["submit"])) {
-        $filter = "none";
-        $public = $_POST["public"];
+        $_COOKIE['filter'] = "none";
+        $_COOKIE["public"] = $_POST["public"];
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
         $folder = SITE_ROOT."/";
@@ -37,7 +37,7 @@
         $contents = ob_get_contents();
         ob_end_clean();
         define("contents", $contents);
-        $filter = "filter1";
+        $_COOKIE['filter'] = "filter1";
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
     if (isset($_POST["filter2"])) {
@@ -52,7 +52,7 @@
         $contents = ob_get_contents();
         ob_end_clean();
         define("contents", $contents);
-        $filter = "filter2";
+        $_COOKIE['filter'] = "filter2";
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
     if (isset($_POST["discard"])) {
@@ -63,16 +63,34 @@
         echo '<meta http-equiv="refresh" content="0; url=photos.php">';
     }
     if (isset($_POST["upload"])) {
-        echo "<p>$filter<p>";
+        $filter = $_COOKIE['filter'];
+        $public = $_COOKIE['public'];
+        $name = $_COOKIE['username'];
         if ($filter == "none"){
             $folder = SITE_ROOT."/";
             $target = $folder."image.jpg";
-            $name = $_COOKIE['username'];
-            $data = file_get_contents($target);
-            $sql = "INSERT INTO images (name, public, img) VALUES ($name, $public, $data)";
-            // $result = $conn->query($sql);
-            echo '<meta http-equiv="refresh" content="photos.php">';
         }
+        if ($filter == "filter1"){
+            $folder = SITE_ROOT."/";
+            $target = $folder."image.jpg";
+            $image = new Imagick($target);
+            $image->resizeImage(298, 298, Imagick::FILTER_LANCZOS,1);
+            $image->setImageFormat("jpg");
+            $image->borderImage("black", 2, 2);
+        }
+        if ($filter == "filter2"){
+            $folder = SITE_ROOT."/";
+            $target = $folder."image.jpg";
+            $image = new Imagick($target);
+            $image->resizeImage(300, 300, Imagick::FILTER_LANCZOS,1);
+            $image->setImageFormat("jpg");
+            $image->setImageType(Imagick::IMGTYPE_GRAYSCALEMATTE);
+            $image->writeImage($target);
+        }
+        $data = file_get_contents($target);
+        $sql = "INSERT INTO images (name, public, img) VALUES ($name, $public, $data)";
+        $result = $conn->query($sql);
+        echo '<meta http-equiv="refresh" content="0; url=photos.php">';
     }
 ?>
 <form action="" method="post">
