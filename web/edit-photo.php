@@ -23,7 +23,7 @@
         ob_end_clean();
         define("contents", $contents);
     }
-    echo "<img src='data:image/jpg;base64,".base64_encode($contents)."' />";
+    echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
 ?>
 <form action="" method="post">
     <input type="submit" name="filter1" value="Filter 1">
