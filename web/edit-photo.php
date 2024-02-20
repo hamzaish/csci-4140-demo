@@ -12,8 +12,6 @@
         $folder = SITE_ROOT."/";
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
-        echo "<img src='$file_name'";
-        echo "<p>$target<p>";
         $image = new Imagick($file_name);
         header("Content-type: image/jpg");
         $img= $image->getImageBlob();
