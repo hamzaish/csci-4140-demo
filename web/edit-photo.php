@@ -22,8 +22,11 @@
         $contents = ob_get_contents();
         ob_end_clean();
         define("contents", $contents);
+        echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
-    echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
+    if (isset($_POST["filter1"])) {
+        echo "<p>Filter 1</p>";
+    }
 ?>
 <form action="" method="post">
     <input type="submit" name="filter1" value="Filter 1">
