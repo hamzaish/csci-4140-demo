@@ -7,6 +7,7 @@
 <?php
     define ('SITE_ROOT', realpath(dirname(__FILE__)));
     if (isset($_POST["submit"])) {
+        define("public", $_POST["public"]);
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
         $folder = SITE_ROOT."/";
