@@ -19,7 +19,7 @@
         <input type="submit" value="Logout"> 
         </form>
         <?php
-            $sql = "SELECT img FROM images WHERE public=true";
+            $sql = "SELECT encode(img::bytea, 'base64') FROM images WHERE public=true";
             $result = $conn->query($sql);
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
             $array = array();
