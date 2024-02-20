@@ -28,7 +28,7 @@
             echo $data;
             $array = array();
             foreach($data as $row){
-                echo $row;
+                echo $row['img'];
                 echo "<img src='data:image/jpeg;charset=utf-8;base64,{$row['img']}' alt='Binary Image'/>";;
                 array_push($array, $row['img']);
             }
