@@ -28,9 +28,9 @@
         $folder = SITE_ROOT."/";
         $target = $folder."image.jpg";
         $image = new Imagick($target);
-        $image->resizeImage(300, 300, Imagick::FILTER_LANCZOS,1);
+        $image->resizeImage(298, 298, Imagick::FILTER_LANCZOS,1);
         $image->setImageFormat("jpg");
-        $image->borderImage("black", 300, 300);
+        $image->borderImage("black", 2, 2);
         ob_start();
         print$image->getImageBlob();
         $contents = ob_get_contents();
@@ -56,6 +56,10 @@
 <form action="" method="post">
     <input type="submit" name="filter1" value="Filter 1">
     <input type="submit" name="filter2" value="Filter 2">
+    <input type="submit" name="discard" value="Discard">
+    <input type="submit" name="upload" value="Upload">
+</form>
+<form action="" method="post">
     <input type="submit" name="discard" value="Discard">
     <input type="submit" name="upload" value="Upload">
 </form>
