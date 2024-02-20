@@ -18,6 +18,16 @@
       <form action="logout.php" method="post"> 
         <input type="submit" value="Logout"> 
         </form>
+        <?php
+            $sql = "SELECT img FROM images WHERE public=true";
+            $result = $conn->query($sql);
+            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+            $array = array();
+            foreach($data as $row){
+                echo $row["img"];
+                array_push($array, $row['img']);
+            }
+        ?>
     </div>
     <div>
         <link href="./index.css" rel="stylesheet" />
