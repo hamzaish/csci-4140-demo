@@ -38,6 +38,20 @@
         define("contents", $contents);
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
+    if (isset($_POST["filter2"])) {
+        $folder = SITE_ROOT."/";
+        $target = $folder."image.jpg";
+        $image = new Imagick($target);
+        $image->resizeImage(300, 300, Imagick::FILTER_LANCZOS,1);
+        $image->setImageFormat("jpg");
+        $image->setImageType(Imagick::IMGTYPE_GRAYSCALEMATTE);
+        ob_start();
+        print$image->getImageBlob();
+        $contents = ob_get_contents();
+        ob_end_clean();
+        define("contents", $contents);
+        echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
+    }
 ?>
 <form action="" method="post">
     <input type="submit" name="filter1" value="Filter 1">
