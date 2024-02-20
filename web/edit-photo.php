@@ -6,6 +6,7 @@
 <body>
 <?php
     define ('SITE_ROOT', realpath(dirname(__FILE__)));
+    $filter = "none";
     if (isset($_POST["submit"])) {
         define("public", $_POST["public"]);
         $file_name = $_FILES["image"]["name"];
@@ -36,6 +37,7 @@
         $contents = ob_get_contents();
         ob_end_clean();
         define("contents", $contents);
+        $filter = "filter1";
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
     if (isset($_POST["filter2"])) {
@@ -50,16 +52,19 @@
         $contents = ob_get_contents();
         ob_end_clean();
         define("contents", $contents);
+        $filter = "filter2";
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
+    }
+    if (isset($_POST["discard"])) {
+        $folder = SITE_ROOT."/";
+        $target = $folder."image.jpg";
+        unlink($target);
+        header("Location: photos.php");
     }
 ?>
 <form action="" method="post">
     <input type="submit" name="filter1" value="Filter 1">
     <input type="submit" name="filter2" value="Filter 2">
-    <input type="submit" name="discard" value="Discard">
-    <input type="submit" name="upload" value="Upload">
-</form>
-<form action="" method="post">
     <input type="submit" name="discard" value="Discard">
     <input type="submit" name="upload" value="Upload">
 </form>
