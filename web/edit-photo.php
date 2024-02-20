@@ -6,8 +6,8 @@
 <body>
 <?php
     define ('SITE_ROOT', realpath(dirname(__FILE__)));
-    $filter = "none";
     if (isset($_POST["submit"])) {
+        $filter = "none";
         $public = $_POST["public"];
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
