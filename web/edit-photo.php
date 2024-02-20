@@ -59,7 +59,13 @@
         $folder = SITE_ROOT."/";
         $target = $folder."image.jpg";
         unlink($target);
-        header("Location: photos.php");
+        exit(header("Location: photos.php"));
+    }
+    if (isset($_POST["upload"])) {
+        if ($filter == "none"){
+            $folder = SITE_ROOT."/";
+            $target = $folder."image.jpg";
+        }
     }
 ?>
 <form action="" method="post">
