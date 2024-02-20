@@ -13,7 +13,7 @@
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
         $image = new Imagick($target);
-        $image->setResolution(300, 300);
+        $image->resizeImage(300, 300);
         $image->setImageFormat("jpg");
         ob_start();
         print$image->getImageBlob();
