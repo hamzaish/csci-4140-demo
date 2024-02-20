@@ -12,11 +12,11 @@
         $folder = SITE_ROOT."/";
         $target = $folder.$file_name;
         move_uploaded_file($temp_name, $target);
-        $image = new Imagick('image.jpg');
+        $image = new Imagick($target);
         $image->setResolution(300, 300);
         $image->setImageFormat("jpg");
         ob_start();
-        print $image->getImageBlob();
+        print$image->getImageBlob();
         $contents = ob_get_contents();
         ob_end_clean();
         echo "<img src='data:image/jpg;base64,".base64_encode($contents)."' />";
