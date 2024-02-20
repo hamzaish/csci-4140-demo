@@ -20,7 +20,8 @@
         </form>
         <?php
             $sql = "SELECT encode(img::bytea, 'base64') FROM images WHERE public=true";
-            $result = $conn->query($sql);
+            $result = $conn->prepare($sql);
+            $result->execute();
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
             $array = array();
             foreach($data as $row){
@@ -28,10 +29,17 @@
                 echo '<img src="data:image/jpeg;base64,' . $img . '" />';
                 array_push($array, $row['img']);
             }
+            
         ?>
     </div>
     <div>
         <link href="./index.css" rel="stylesheet" />
+        <form method="post"> 
+            <input type="submit" name="button1"
+                    class="button" value="Previous" /> 
+            <input type="submit" name="button2"
+                    class="button" value="Next" /> 
+        </form> 
         <form action="edit-photo.php" method="post" enctype="multipart/form-data">
             <input type="file" name="image" id="image">
             <input type="checkbox" id="public" name="public" checked/>
