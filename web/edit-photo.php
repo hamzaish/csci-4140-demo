@@ -6,9 +6,10 @@
 <body>
 <?php
     define ('SITE_ROOT', realpath(dirname(__FILE__)));
+    session_start();
     if (isset($_POST["submit"])) {
-        $_COOKIE['filter'] = "none";
-        $_COOKIE["public"] = $_POST["public"];
+        $_SESSION['filter'] = "none";
+        $_SESSION["public"] = $_POST["public"];
         $file_name = $_FILES["image"]["name"];
         $temp_name = $_FILES["image"]["tmp_name"];
         $folder = SITE_ROOT."/";
@@ -37,7 +38,7 @@
         $contents = ob_get_contents();
         ob_end_clean();
         define("contents", $contents);
-        $_COOKIE['filter'] = "filter1";
+        $_SESSION['filter'] = "filter1";
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
     if (isset($_POST["filter2"])) {
@@ -52,7 +53,7 @@
         $contents = ob_get_contents();
         ob_end_clean();
         define("contents", $contents);
-        $_COOKIE['filter'] = "filter2";
+        $_SESSION['filter'] = "filter2";
         echo "<img src='data:image/jpg;base64,".base64_encode(contents)."' />";
     }
     if (isset($_POST["discard"])) {
@@ -63,9 +64,9 @@
         echo '<meta http-equiv="refresh" content="0; url=photos.php">';
     }
     if (isset($_POST["upload"])) {
-        $filter = $_COOKIE['filter'];
-        $public = $_COOKIE['public'];
-        $name = $_COOKIE['username'];
+        $filter = $_SESSION['filter'];
+        $public = $_SESSION['public'];
+        $name = $_SESSION['username'];
         if ($filter == "none"){
             $folder = SITE_ROOT."/";
             $target = $folder."image.jpg";
