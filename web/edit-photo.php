@@ -60,7 +60,7 @@
         $target = $folder."image.jpg";
         unlink($target);
         $domain = "photos.php";
-        echo '<meta http-equiv="refresh" content="7; url=<?php $domain ?>"';
+        echo '<meta http-equiv="refresh" content="1; url=$domain>"';
     }
     if (isset($_POST["upload"])) {
         if ($filter == "none"){
