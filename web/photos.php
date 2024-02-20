@@ -21,7 +21,7 @@
         </form>
         <?php
             $_SESSION["page"] = 0;
-            $sql = "SELECT encode(img::bytea, 'base64') FROM images WHERE public=true";
+            $sql = "SELECT * FROM images WHERE public=true";
             $result = $conn->prepare($sql);
             $result->execute();
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -29,8 +29,7 @@
             $array = array();
             foreach($data as $row){
                 echo $row;
-                $img = base64_decode($row['img']);
-                echo '<img src="data:image/jpeg;base64,' . $img . '" />';
+                echo "<img src='data:image/jpeg;charset=utf-8;base64,{$row['img']}' alt='Binary Image'/>";;
                 array_push($array, $row['img']);
             }
         ?>
