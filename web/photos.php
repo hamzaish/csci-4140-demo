@@ -1,5 +1,6 @@
 <?php
     $connect = include('db_connect.php');
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -19,25 +20,26 @@
         <input type="submit" value="Logout"> 
         </form>
         <?php
+            $_SESSION["page"] = 0;
             $sql = "SELECT encode(img::bytea, 'base64') FROM images WHERE public=true";
             $result = $conn->prepare($sql);
             $result->execute();
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
+            echo $data;
             $array = array();
             foreach($data as $row){
                 $img = base64_decode($row['img']);
                 echo '<img src="data:image/jpeg;base64,' . $img . '" />';
                 array_push($array, $row['img']);
             }
-            
         ?>
     </div>
     <div>
         <link href="./index.css" rel="stylesheet" />
         <form method="post"> 
-            <input type="submit" name="button1"
+            <input type="submit" name="previous"
                     class="button" value="Previous" /> 
-            <input type="submit" name="button2"
+            <input type="submit" name="next"
                     class="button" value="Next" /> 
         </form> 
         <form action="edit-photo.php" method="post" enctype="multipart/form-data">
