@@ -28,7 +28,7 @@
             $result->execute();
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
             $user = $_COOKIE["username"];
-            $sql2 = "SELECT * FROM images WHERE public=false AND name='$name'";
+            $sql2 = "SELECT * FROM images WHERE public=false AND name='$user'";
             $result2 = $conn->prepare($sql2);
             $result2->execute();
             $data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
