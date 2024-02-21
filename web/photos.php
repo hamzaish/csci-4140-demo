@@ -29,7 +29,6 @@
             $array = array();
             foreach($data as $row){
                 $raw = stream_get_contents($row["img"]);
-                echo $raw;
                 echo "<img src='data:image/jpeg;charset=utf-8;base64,{$raw}' alt='Binary Image'/>";;
                 array_push($array, $row['img']);
             }
