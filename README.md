@@ -33,6 +33,7 @@ We would like to highlight the following accomplishments which we believe warran
 - **Sorted Album and Pagination** - Webpage shows 8 images at a time and user can use previous and next to go through them.
 - **Editing Features** - User can make uploaded picture black and white or add a black border around image; user can choose to discard or upload the image.
 - **BONUS Added Initialization** - Admins can reset database using the button on the photos.php page.
+- **BONUS Added Some Field Validation** - Users will not be able to submit password or username unless both are filled in; cannot submit nothing as a file.
 
 ## Partially Completed Work (Just for your reference! You should not copy any of these!)
 
