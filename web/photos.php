@@ -48,6 +48,7 @@
             if(!isset($_POST["previous"]) and ($_SESSION["page"] > 0)){
                 $_SESSION["page"] = $_SESSION["page"]-1;
             }
+            $array = array_reverse($array);
             $show = array_splice($array, ($_SESSION["page"]*8), ($_SESSION["page"]*8)+8);
             foreach($show as $raw){
                 echo "<img src='data:image/jpeg;charset=utf-8;base64,{$raw}' alt='Binary Image'/>";
@@ -57,9 +58,9 @@
     <div>
         <link href="./index.css" rel="stylesheet" />
         <form method="post"> 
-            <input type="submit" name="previous"
-                    class="button" value="Previous" /> 
             <input type="submit" name="next"
+                    class="button" value="Previous" /> 
+            <input type="submit" name="previous"
                     class="button" value="Next" /> 
         </form> 
         <form action="edit-photo.php" method="post" enctype="multipart/form-data">
