@@ -20,17 +20,28 @@
         <input type="submit" value="Logout"> 
         </form>
         <?php
-            $_SESSION["page"] = 0;
+            if(!isset($_SESSION["page"])){
+                $_SESSION["page"] = 0;
+            }
             $sql = "SELECT * FROM images WHERE public=true";
             $result = $conn->prepare($sql);
             $result->execute();
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
-            echo $data;
             $array = array();
             foreach($data as $row){
                 $raw = stream_get_contents($row["img"]);
-                echo "<img src='data:image/jpeg;charset=utf-8;base64,{$raw}' alt='Binary Image'/>";;
-                array_push($array, $row['img']);
+                array_push($array, $raw);
+            }
+            $length = count($array);
+            if(!isset($_POST["next"]) and ($length < ($_SESSION["page"]*8))){
+                $_SESSION["page"] = $_SESSION["page"]+1;
+            }
+            if(!isset($_POST["previous"]) and ($length > ($_SESSION["page"]*8))){
+                $_SESSION["page"] = $_SESSION["page"]-1;
+            }
+            $show = array_splice($array, ($_SESSION["page"]*8), 8);
+            foreach($show as $raw){
+                echo "<img src='data:image/jpeg;charset=utf-8;base64,{$raw}' alt='Binary Image'/>";
             }
         ?>
     </div>

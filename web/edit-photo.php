@@ -70,6 +70,10 @@
         if ($filter == "none"){
             $folder = SITE_ROOT."/";
             $target = $folder."image.jpg";
+            $image = new Imagick($target);
+            $image->resizeImage(300, 300, Imagick::FILTER_LANCZOS,1);
+            $image->setImageFormat("jpg");
+            $image->writeImage($target);
         }
         if ($filter == "filter1"){
             $folder = SITE_ROOT."/";
@@ -78,6 +82,7 @@
             $image->resizeImage(298, 298, Imagick::FILTER_LANCZOS,1);
             $image->setImageFormat("jpg");
             $image->borderImage("black", 2, 2);
+            $image->writeImage($target);
         }
         if ($filter == "filter2"){
             $folder = SITE_ROOT."/";
