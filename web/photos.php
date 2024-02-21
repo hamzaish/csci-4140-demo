@@ -53,6 +53,11 @@
             foreach($show as $raw){
                 echo "<img src='data:image/jpeg;charset=utf-8;base64,{$raw}' alt='Binary Image'/>";
             }
+            if($user == "admin"){
+                echo "<form action='init.php' method='post'>
+                <input type='submit' name='submit' value='Re-Initialize System'>
+                </form>";
+            }
         ?>
     </div>
     <div>
