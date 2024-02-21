@@ -6,39 +6,33 @@ Welcome to the *Assignment 1*. This document provides an overview of the project
 
 **Important:** Please visit the project's website hosted on Render at the following URL:  
 [Project Website on Render](#)  
-- For example, you can check the demo website deployed using this repo here: https://csci4140.onrender.com/
+- For example, you can check the demo website deployed using this repo here: https://csci-4140-demo.onrender.com
 
-## Directory Structure and Functionality (Just for your reference! You should not copy any of these!)
+## Directory Structure and Functionality
 
 Below is an outline of the project's directory structure along with a description of the contents and functionality of each directory and file.
 
-- `/src` - Contains all the source code files for the project.
-  - `/components` - Stores reusable UI components used across different parts of the application.
-  - `/views` - Holds the different views or pages of the application.
-  - `/models` - Includes the data models that define the structure of the database entities.
-- `/public` - This directory contains static assets such as images, fonts, and `index.html`.
-- `/scripts` - Contains build and deployment scripts to automate parts of the development process.
-- `/config` - Stores configuration files for different environments and build setups.
-- `/database` - Includes database schema files and migration scripts.
-- `/tests` - Contains all the test cases and testing-related files.
+- `/web` - Contains all the source code files for the project.
+  - `/images` - Stores temporary images used in the project.
 
-## System Building Procedure (Just for your reference! You should not copy any of these!)
+## System Building Procedure
 
 The system was built using the following procedure and key components:
 
-1. **Setup Development Environment** - Configured the local development environment with necessary tools and dependencies.
-2. **Database Integration** - We integrated a [Your Database Package] for robust data management and retrieval.
-3. **Coding Standards** - Followed best practices in coding standards to ensure readability and maintainability.
-4. **Version Control** - Utilized Git for version control, with systematic commits and descriptive messages.
-5. **Testing and Debugging** - Wrote unit and integration tests to ensure the stability and reliability of the system.
-6. **Deployment** - Deployed the application on the Render server using continuous deployment pipelines.
+1. **Setup Development Environment** - Configured the local development environment using Docker and installed required dependencies.
+2. **Database Integration** - We integrated a PDO and Postgres SGL database for robust data management and retrieval.
+3. **Version Control** - Utilized Git for version control, with systematic commits and descriptive messages.
+4. **Deployment** - Deployed the application on the Render server using continuous deployment pipelines.
 
-## Accomplishments and Bonus Request (Just for your reference! You should not copy any of these!)
+## Accomplishments and Bonus Request
 
 We would like to highlight the following accomplishments which we believe warrant a bonus:
 
-- **Optimized Performance** - We have implemented caching and optimized queries, which have significantly improved the system's performance.
-- **Responsive Design** - The application features a fully responsive design that works across various devices and screen sizes.
+- **Log-in and Log-off** - Ability to log in and out of the web service using cookies; ability to save private images to user.
+- **Upload and Edit Images** - User can upload and edit an image using the services' two filters.
+- **Sorted Album and Pagination** - Webpage shows 8 images at a time and user can use previous and next to go through them.
+- **Editing Features** - User can make uploaded picture black and white or add a black border around image; user can choose to discard or upload the image.
+- **BONUS Added Initialization** - Admins can reset database using the button on the photos.php page.
 
 ## Partially Completed Work (Just for your reference! You should not copy any of these!)
 

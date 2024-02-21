@@ -18,12 +18,14 @@
           placeholder="Username"
           name="username"
           class="home-textinput input"
+          required
         />
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           name="password"
           class="home-textinput1 input"
+          required
         />
         <button type="submit" class="home-button button">Log In</button>
       </form>

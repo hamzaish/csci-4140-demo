@@ -72,7 +72,7 @@
             <input type="file" name="image" id="image">
             <input type="checkbox" id="public" name="public" checked/>
             <label for="public">Public?</label>
-            <input type="submit" name="submit" value="Upload Photo">
+            <input type="submit" name="submit" value="Upload Photo" required>
         </form>
     </div>
   </body>
