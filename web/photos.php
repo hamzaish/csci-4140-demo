@@ -42,13 +42,13 @@
                 array_push($array, $raw);
             }
             $length = count($array);
-            if(!isset($_POST["next"]) and ($length < ($_SESSION["page"]*8))){
+            if(!isset($_POST["next"]) and (($_SESSION["page"]*8)<$length)){
                 $_SESSION["page"] = $_SESSION["page"]+1;
             }
-            if(!isset($_POST["previous"]) and ($length > ($_SESSION["page"]*8))){
+            if(!isset($_POST["previous"]) and ($_SESSION["page"] > 0)){
                 $_SESSION["page"] = $_SESSION["page"]-1;
             }
-            $show = array_splice($array, ($_SESSION["page"]*8), 8+($_SESSION["page"]*8));
+            $show = array_splice($array, ($_SESSION["page"]*8), ($_SESSION["page"]*8)+8);
             foreach($show as $raw){
                 echo "<img src='data:image/jpeg;charset=utf-8;base64,{$raw}' alt='Binary Image'/>";
             }
