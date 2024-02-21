@@ -1,6 +1,9 @@
 <?php
     $connect = include('db_connect.php');
     session_start();
+    if(!isset($_COOKIE["username"])){
+        header("Location: login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>

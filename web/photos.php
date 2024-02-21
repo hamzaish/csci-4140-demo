@@ -27,8 +27,17 @@
             $result = $conn->prepare($sql);
             $result->execute();
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
+            $user = $_COOKIE["username"];
+            $sql2 = "SELECT * FROM images WHERE public=false AND name='$name'";
+            $result2 = $conn->prepare($sql2);
+            $result2->execute();
+            $data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
             $array = array();
             foreach($data as $row){
+                $raw = stream_get_contents($row["img"]);
+                array_push($array, $raw);
+            }
+            foreach($data2 as $row){
                 $raw = stream_get_contents($row["img"]);
                 array_push($array, $raw);
             }
@@ -39,7 +48,7 @@
             if(!isset($_POST["previous"]) and ($length > ($_SESSION["page"]*8))){
                 $_SESSION["page"] = $_SESSION["page"]-1;
             }
-            $show = array_splice($array, ($_SESSION["page"]*8), 8);
+            $show = array_splice($array, ($_SESSION["page"]*8), 8+($_SESSION["page"]*8));
             foreach($show as $raw){
                 echo "<img src='data:image/jpeg;charset=utf-8;base64,{$raw}' alt='Binary Image'/>";
             }
